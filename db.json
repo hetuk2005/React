@@ -3,8 +3,8 @@
     {
       "task": "Hello",
       "id": 1,
-      "delete": false,
-      "edit": false
+      "delete": true,
+      "edit": true
     }
   ]
 }
