@@ -4,7 +4,8 @@
       "task": "Hello",
       "id": 1,
       "delete": true,
-      "edit": true
+      "edit": true,
+      "complete": true
     }
   ]
 }
