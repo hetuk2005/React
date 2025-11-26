@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export const CustomForm = ({ feilds, onSubmit, buttonText }) => {
   const [formData, setFormData] = useState(() => {
@@ -48,4 +49,18 @@ export const CustomForm = ({ feilds, onSubmit, buttonText }) => {
       <button type="submit">{buttonText}</button>
     </form>
   );
+};
+
+CustomForm.propTypes = {
+  feilds: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      placeholder: PropTypes.string,
+      label: PropTypes.string.isRequired,
+      required: PropTypes.bool,
+    })
+  ).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  buttonText: PropTypes.string.isRequired,
 };
