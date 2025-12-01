@@ -5,7 +5,7 @@ export const Navbar = () => {
     // { path: "/", element: "" },
     { path: "/", element: "home" },
     { path: "/auth", element: "auth" },
-    { path: "/show_login", element: "show_login" },
+    { path: "/show_login", element: "login" },
     // { path: "/page_404", element: "page_404" },
   ];
 
@@ -20,6 +20,7 @@ export const Navbar = () => {
                 fontSize: "35px",
                 textTransform: "capitalize",
                 fontWeight: "900",
+                textDecoration: "none",
               }}
               to={el.path}
               end
