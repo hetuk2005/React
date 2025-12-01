@@ -5,10 +5,11 @@ export const contextCreated = createContext(null);
 
 export const ContextComponents = ({ children }) => {
   const [data, setData] = useState([]);
+  const [isLogin, setisLogin] = useState(false);
 
   return (
     <>
-      <contextCreated.Provider value={{ data, setData }}>
+      <contextCreated.Provider value={{ data, setData, isLogin, setisLogin }}>
         {children}
       </contextCreated.Provider>
     </>
