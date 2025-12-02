@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import "../App.css";
 
 export const Navbar = () => {
   const navPath = [
@@ -14,18 +15,7 @@ export const Navbar = () => {
       {navPath.length &&
         navPath.map((el, i) => {
           return (
-            <NavLink
-              style={{
-                color: "#000",
-                fontSize: "35px",
-                textTransform: "capitalize",
-                fontWeight: "900",
-                textDecoration: "none",
-              }}
-              to={el.path}
-              end
-              key={i}
-            >
+            <NavLink to={el.path} end className="nav_bar" key={i}>
               {el.element}
             </NavLink>
           );

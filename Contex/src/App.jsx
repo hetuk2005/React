@@ -1,5 +1,4 @@
-import { ApiCall } from "./Components/Api_Call";
-
+import { AllRoutes } from "./Routes/AllRoutes";
 import { Navbar } from "./Components/Navbar";
 
 function App() {
@@ -7,7 +6,7 @@ function App() {
     <>
       <h1 style={{ textAlign: "center" }}>Api Calling</h1>
       <Navbar />
-      <ApiCall />
+      <AllRoutes />
     </>
   );
 }

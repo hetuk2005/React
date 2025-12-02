@@ -25,7 +25,15 @@ export const Auth = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div
+          style={{
+            marginTop: "51px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "21px",
+          }}
+        >
           <label htmlFor="Username">Username</label>
           <input
             type="text"
@@ -34,7 +42,15 @@ export const Auth = () => {
             onChange={(e) => setText(e.target.value)}
           />
         </div>
-        <div>
+        <br />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "21px",
+          }}
+        >
           <label htmlFor="Password">Password</label>
           <input
             type="password"
@@ -43,7 +59,9 @@ export const Auth = () => {
             onChange={(e) => settextPass(e.target.value)}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" style={{ display: "block", margin: "31px auto" }}>
+          Submit
+        </button>
       </form>
     </>
   );
