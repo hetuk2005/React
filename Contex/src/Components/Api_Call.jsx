@@ -42,6 +42,7 @@ export const ApiCall = () => {
                 borderRadius: "15px",
                 display: "flex",
                 flexDirection: "column",
+                cursor: "pointer",
               }}
             >
               <h4 style={{ textAlign: "center" }}>{el.id}</h4>

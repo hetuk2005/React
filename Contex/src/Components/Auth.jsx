@@ -19,7 +19,7 @@ export const Auth = () => {
   if (isLogin) {
     console.log("Hello");
 
-    return <Navigate to="/show_login" />;
+    return <Navigate to="/home" />;
   }
 
   return (

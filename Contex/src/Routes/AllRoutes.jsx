@@ -9,7 +9,7 @@ export const AllRoutes = () => {
   return (
     <Routes>
       <Route
-        path="/"
+        path="/home"
         element={
           <PrivateRoute>
             <ApiCall />

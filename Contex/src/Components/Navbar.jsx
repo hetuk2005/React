@@ -4,7 +4,7 @@ import "../App.css";
 export const Navbar = () => {
   const navPath = [
     // { path: "/", element: "" },
-    { path: "/", element: "home" },
+    { path: "/home", element: "home" },
     { path: "/auth", element: "auth" },
     { path: "/show_login", element: "login" },
     // { path: "/page_404", element: "page_404" },
