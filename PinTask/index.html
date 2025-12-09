@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pin Task</title>
+        <style>
+            h1{
+                text-align: center;
+            }
+            .todo{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 7px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Todo</h1>
+        <div class="todo">
+            <input type="text" placeholder="Enter Todo" class="text_todo">
+            <button class="add_btn" onclick="Todo()">Add</button>
+        </div>
+        <h1>Todo List</h1>
+        <div class="text_task"></div>
+    </body>
+    <script src="./delete_Todo.js"></script>
+</html>
