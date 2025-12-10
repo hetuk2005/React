@@ -63,6 +63,7 @@ export const User = () => {
             </Link>
           </div>
         ))}
+        
         <button disabled={page === 1} onClick={() => setPage(page - 1)}>
           Prev
         </button>

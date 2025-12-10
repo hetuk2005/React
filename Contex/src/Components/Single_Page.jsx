@@ -45,6 +45,7 @@ export const SinglePage = () => {
               <br />
               <img
                 src={el.image}
+                loading="lazy"
                 alt="Products"
                 style={{
                   width: "210px",
