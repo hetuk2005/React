@@ -1,74 +1,71 @@
-import { useContext, useEffect } from "react";
-import { contextCreated } from "../Context/Context_Components";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
+const getData = (url) => {
+  return axios
+    .get(url)
+    .then((res) => res)
+    .catch((err) => err);
+};
+
 export const SinglePage = () => {
-  const { data, setData } = useContext(contextCreated);
+  const [data, setData] = useState({});
 
-  const apiCall = async () => {
-    const API = "https://fakestoreapi.com/products";
-
-    let ans = await axios(API);
-    setData(ans.data);
-  };
+  const { productId } = useParams();
+  const API = `https://fakestoreapi.com/products/${productId}`;
 
   useEffect(() => {
-    apiCall();
-  }, []);
+    getData(API)
+      .then((res) => setData(res.data))
+      .catch((err) => console.log("Error: ", err));
+  }, [productId]);
+
+  console.log("Data: ", data);
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3,1fr)",
-        justifyItems: "center",
-        alignContent: "center",
-        gap: "15px",
-        padding: "21px",
-      }}
-    >
-      {data &&
-        data.map((el) => {
-          return (
-            <div
-              key={el.id}
+    <>
+      <div>
+        {
+          <div
+            key={data.id}
+            style={{
+              padding: "15px",
+              borderRadius: "15px",
+              display: "flex",
+              flexDirection: "column",
+              cursor: "pointer",
+              textAlign: "center",
+            }}
+          >
+            {/* <h4 style={{ textAlign: "center" }}>{data.id}</h4> */}
+            <br />
+            <img
+              src={data.image}
+              loading="lazy"
+              alt="Products"
               style={{
-                border: "2px solid #000",
-                padding: "15px",
-                borderRadius: "15px",
-                display: "flex",
-                flexDirection: "column",
-                cursor: "pointer",
+                width: "210px",
+                height: "auto",
+                display: "block",
+                margin: "auto",
               }}
-            >
-              <h4 style={{ textAlign: "center" }}>{el.id}</h4>
-              <br />
-              <img
-                src={el.image}
-                loading="lazy"
-                alt="Products"
-                style={{
-                  width: "210px",
-                  height: "auto",
-                  display: "block",
-                  margin: "auto",
-                }}
-              />
-              <br />
-              <h3 style={{ textTransform: "capitalize" }}>Title: {el.title}</h3>
-              <h3>Price: ${el.price}</h3>
-              <h3 style={{ textTransform: "capitalize" }}>
-                Category: {el.category}
-              </h3>
-              <p>
-                <b>
-                  <u style={{ padding: "11px 0" }}>Description</u>:
-                </b>{" "}
-                {el.description}
-              </p>
-            </div>
-          );
-        })}
-    </div>
+            />
+            <br />
+            <h3 style={{ textTransform: "capitalize" }}>Title: {data.title}</h3>
+            <h3>Price: ${data.price}</h3>
+            <h3 style={{ textTransform: "capitalize" }}>
+              Category: {data.category}
+            </h3>
+            <p>
+              <b>
+                <u style={{ padding: "11px 0" }}>Description</u>:
+              </b>{" "}
+              {data.description}
+            </p>
+          </div>
+        }
+      </div>
+    </>
   );
 };

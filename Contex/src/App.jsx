@@ -7,8 +7,8 @@ function App() {
     <>
       <h1 style={{ textAlign: "center" }}>Api Calling</h1>
       <Navbar />
-      <AllRoutes />
       <BreadCrumbs />
+      <AllRoutes />
     </>
   );
 }

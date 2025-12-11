@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import { contextCreated } from "../Context/Context_Components";
@@ -34,10 +35,13 @@ export const ApiCall = () => {
       {data &&
         data.map((el) => {
           return (
-            <div
+            <Link
+              to={`/singlePage/${el.id}`}
               key={el.id}
               style={{
                 border: "2px solid #000",
+                color: "#000",
+                textDecoration: "none",
                 padding: "15px",
                 borderRadius: "15px",
                 display: "flex",
@@ -69,7 +73,7 @@ export const ApiCall = () => {
                 </b>{" "}
                 {el.description}
               </p>
-            </div>
+            </Link>
           );
         })}
     </div>
