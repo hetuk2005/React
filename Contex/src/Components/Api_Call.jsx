@@ -36,7 +36,7 @@ export const ApiCall = () => {
         data.map((el) => {
           return (
             <Link
-              to={`/singlePage/${el.id}`}
+              to={`/home/${el.id}`}
               key={el.id}
               style={{
                 border: "2px solid #000",

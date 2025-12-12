@@ -9,7 +9,7 @@ export const Auth = () => {
   const [textPass, settextPass] = useState("");
 
   const handleSubmit = (e) => {
-    console.log("Hello From Submit Function");
+    // console.log("Hello From Submit Function");
 
     e.preventDefault();
     if (text.length === 0 && textPass.length === 0) return;
@@ -17,9 +17,9 @@ export const Auth = () => {
   };
 
   if (isLogin) {
-    console.log("Hello");
+    // console.log("Hello");
 
-    return <Navigate to="/home" />;
+    return <Navigate to="/user_2" />;
   }
 
   return (

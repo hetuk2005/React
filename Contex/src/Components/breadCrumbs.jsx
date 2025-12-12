@@ -6,12 +6,13 @@ export const BreadCrumbs = () => {
   const location = useLocation();
   // console.log("Location: ", location);
 
-  let currentPath = ``;
+  let currentPath = "";
 
   const crumbsName = location.pathname
     .split("/")
     .filter((el) => el != "")
     .map((el) => {
+      // eslint-disable-next-line react-hooks/immutability
       currentPath += `/${el}`;
 
       return (

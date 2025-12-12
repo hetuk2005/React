@@ -5,6 +5,7 @@ import { Page_404 } from "../Pages/Page_404";
 import { ApiCall } from "../Components/Api_Call";
 import { PrivateRoute } from "../Auth/privateRoute";
 import { SinglePage } from "../Components/Single_Page";
+import { ApiCall_Different } from "../Components/ApiCall_Different";
 
 export const AllRoutes = () => {
   return (
@@ -20,7 +21,15 @@ export const AllRoutes = () => {
       <Route path="/auth" element={<Auth />}></Route>
       <Route path="/show_login" element={<Show_Login />}></Route>
       <Route
-        path="/singlePage/:productId"
+        path="/user_2"
+        element={
+          <PrivateRoute>
+            <ApiCall_Different />
+          </PrivateRoute>
+        }
+      ></Route>
+      <Route
+        path="/home/:productId"
         element={
           <PrivateRoute>
             <SinglePage />
