@@ -2,11 +2,22 @@ import { useState } from "react";
 import { TodoList } from "./todoList";
 
 export const TodoInput = () => {
+  const [todoData, setTodoData] = useState([]);
   const [todoText, setTodoText] = useState("");
 
   const handleTodo = () => {
-    console.log("Hello Add");
+    // console.log("Hello Add");
+    const data = {
+      id: Date.now(),
+      text: todoText,
+      isEdit: false,
+      isComplete: false,
+    };
+
+    setTodoData((prev) => [...prev, data]);
+    setTodoText("");
   };
+  // console.log("Data: ", todoData);
 
   return (
     <>
@@ -23,14 +34,15 @@ export const TodoInput = () => {
         <input
           type="text"
           placeholder="Enter The Task"
-          onChange={(e) => e.prevent.value}
+          value={todoText}
+          onChange={(e) => setTodoText(e.target.value)}
         />
-        <button onClick={() => handleTodo()} style={{ cursor: "pointer" }}>
+        <button onClick={handleTodo} style={{ cursor: "pointer" }}>
           Add
         </button>
       </div>
       <br />
-      <TodoList />
+      <TodoList Props={(todoData, setTodoData)} />
     </>
   );
 };
