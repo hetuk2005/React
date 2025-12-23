@@ -3,7 +3,11 @@ import React, { useReducer, useRef } from "react";
 import { reducer } from "../Reducer/Reducer";
 import { TodoList } from "./TodoList";
 import { initialValue } from "../Reducer/Store";
-import { ADD_TODO_ITEMS } from "../Reducer/Action";
+import {
+  ADD_TODO_ITEMS,
+  LOADING_TODO_ITEMS,
+  ERROR_TODO_ITEMS,
+} from "../Reducer/Action";
 
 export const TodoInput = () => {
   const todoText = useRef(null);
@@ -11,10 +15,20 @@ export const TodoInput = () => {
 
   const handleAdd = () => {
     const value = todoText.current.value.trim();
-    if (value === "") return;
-    dispatch({ type: ADD_TODO_ITEMS, payload: value });
+    if (value === "") {
+      dispatch({ type: ERROR_TODO_ITEMS });
+      return;
+    }
+    dispatch({ type: LOADING_TODO_ITEMS });
+
+    setTimeout(() => {
+      dispatch({ type: ADD_TODO_ITEMS, payload: value });
+    }, 1000);
     todoText.current.value = "";
   };
+
+  if (state.isLoading)
+    return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
 
   return (
     <>
@@ -31,7 +45,11 @@ export const TodoInput = () => {
         <button onClick={handleAdd}>Add</button>
       </div>
       <br />
-      <TodoList value={{ state, dispatch }} />
+      {state.isError ? (
+        <h1 style={{ textAlign: "center" }}>Something Went Wrong...</h1>
+      ) : (
+        <TodoList value={{ state, dispatch }} />
+      )}
     </>
   );
 };

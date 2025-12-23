@@ -1,11 +1,25 @@
-import { ADD_TODO_ITEMS, DELETE_TODO_ITEMS, EDIT_TODO_ITEMS } from "./Action";
+import {
+  ADD_TODO_ITEMS,
+  DELETE_TODO_ITEMS,
+  EDIT_TODO_ITEMS,
+  ERROR_TODO_ITEMS,
+  LOADING_TODO_ITEMS,
+} from "./Action";
 import { initialValue } from "./Store";
 
 export const reducer = (state = initialValue, action) => {
   switch (action.type) {
+    case LOADING_TODO_ITEMS:
+      return { ...state, isLoading: true };
+
+    case ERROR_TODO_ITEMS:
+      return { ...state, isLoading: false, isError: true };
+
     case ADD_TODO_ITEMS:
       return {
         ...state,
+        isLoading: false,
+        isError: false,
         items: [
           ...state.items,
           {
